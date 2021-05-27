@@ -22,10 +22,15 @@ export default defineConfig({
   resolve: {
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
     alias: {
-      "@/": path.resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
   css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/assets/scss/global.scss";`,
+      },
+    },
     modules: {
       scopeBehaviour: "local",
     },
